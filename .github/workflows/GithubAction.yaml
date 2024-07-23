@@ -19,7 +19,7 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v1
         with:
           role-to-assume: arn:aws:iam::533267177980:role/OIDC_Role
-          role-session-name: samplerolesession
+          # role-session-name: samplerolesession
           aws-region: ${{ env.AWS_REGION }}
 
       - name: Print AWS SSM Parameter
