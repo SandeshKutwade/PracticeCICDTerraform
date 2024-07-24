@@ -9,7 +9,7 @@
       "Action": "sts:AssumeRoleWithWebIdentity",
       "Condition": {
         "StringEquals": {
-          "token.actions.githubusercontent.com:sub": "repo:PracticeCICDTerraform:ref:refs/heads/main"
+          "token.actions.githubusercontent.com:sub": "repo:SandeshKutwade/PracticeCICDTerraform:ref:refs/heads/main"
         }
       }
     }
