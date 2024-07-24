@@ -7,7 +7,7 @@ resource "aws_instance" "example" {
   instance_type = "t2.medium"
 
   tags = {
-    Name = "Checkingwhere"
+    Name = "From_Main"
   }
 }
 
