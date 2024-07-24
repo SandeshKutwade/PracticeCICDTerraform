@@ -7,3 +7,8 @@ Step 1 [IAM] -
 ------------------------------------------------------------------------------------------------------------------------------------------------
 step 2 [IAM] -
     create roles ----> web Identity ---->add token that you added above ----> audience ----> [administrative]  policies  with administrative privilages ----> trust relationship [this is the step where you configure OIDC]
+
+
+    "repo:SandeshKutwade/PracticeCICDTerraform/GitHub-Action-OIDCConnect:pull_request",
+              "repo:SandeshKutwade/PracticeCICDTerraform/GitHub-Action-OIDCConnect:ref:refs/heads/main",
+            "token.actions.githubusercontent.com:aud": "sts.amazonaws.com"
