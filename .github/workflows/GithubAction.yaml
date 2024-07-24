@@ -16,8 +16,8 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v2
         with:
-          role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
-          aws-region: ${{ secrets.AWS_REGION }}
+          role-to-assume: arn:aws:iam::533267177980:role/OIDC_Role
+          aws-region: ap-south-1
 
       - name: Launch EC2 instance
         run: |
@@ -28,6 +28,6 @@ jobs:
             --key-name MumbaiKey \
             # --security-group-ids YOUR_SECURITY_GROUP_ID \
             # --subnet-id YOUR_SUBNET_ID
-            
+
       - name: Print environment variables
         run: env
