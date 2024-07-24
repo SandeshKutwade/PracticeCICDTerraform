@@ -28,31 +28,30 @@
 #       - name: Print assumed role
 #         run: aws sts get-caller-identity
 
-name: AWS OIDC Connect Demo
+name: CI/CD
+
 on:
   push:
     branches:
       - main
-env:
-  AWS_REGION: "ap-south-1"
-permissions:
-  id-token: write   # This is required for requesting the JWT
-  contents: read    # This is required for actions/checkout
+
 jobs:
-  DemoOIDC:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Git clone the repository
-        uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v2
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v2
         with:
           role-to-assume: arn:aws:iam::533267177980:role/OIDC_Role
-          aws-region: ${{ env.AWS_REGION }}
+          aws-region: ap-south-1
 
-      - name: Print AWS SSM Parameter
-        run: aws ssm get-parameter --name hello_aws-gh-oidc --query Parameter.Value
-
-      - name: Print assumed role
-        run: aws sts get-caller-identity
+      - name: Launch EC2 instance
+        run: |
+          aws ec2 run-instances \
+            --image-id ami-0ad21ae1d0696ad58 \ # Example AMI ID, replace with your preferred AMI
+            --count 1 \
+            --instance-type t2.micro \
+            --key-name MumbaiKey \

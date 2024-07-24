@@ -1,18 +1,17 @@
 {
-    "Version": "2012-10-17",
-    "Statement": [
-      {
-        "Effect": "Allow",
-        "Principal": {
-          "Federated": "arn:aws:iam::533267177980:oidc-provider/token.actions.githubusercontent.com"
-        },
-        "Action": "sts:AssumeRoleWithWebIdentity",
-        "Condition": {
-          "StringLike": {
-            "token.actions.githubusercontent.com:sub": "repo:SandeshKutwade/PracticeCICDTerraform/GitHub-Action-OIDCConnect:*"
-          }
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Federated": "arn:aws:iam::533267177980:oidc-provider/token.actions.githubusercontent.com"
+      },
+      "Action": "sts:AssumeRoleWithWebIdentity",
+      "Condition": {
+        "StringEquals": {
+          "token.actions.githubusercontent.com:sub": "repo:PracticeCICDTerraform:ref:refs/heads/main"
         }
       }
-    ]
-  }
-
+    }
+  ]
+}
