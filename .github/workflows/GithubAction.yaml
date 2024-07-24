@@ -17,6 +17,7 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v2
         with:
           role-to-assume: arn:aws:iam::533267177980:role/NewOIDCRole
+          audience: sts.amazonaws.com
           aws-region: ap-south-1
 
       - name: Launch EC2 instance
